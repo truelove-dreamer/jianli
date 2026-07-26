@@ -11,22 +11,21 @@ const chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
     executablePath: fs.existsSync(chromePath) ? chromePath : undefined,
     args: ["--autoplay-policy=no-user-gesture-required"],
   });
-  const page = await browser.newPage({ viewport: { width: 960, height: 540 } });
+  const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
 
   const base64 = await page.evaluate(async () => {
     const canvas = document.createElement("canvas");
-    canvas.width = 960;
-    canvas.height = 540;
+    canvas.width = 1280;
+    canvas.height = 720;
     document.body.append(canvas);
     const ctx = canvas.getContext("2d");
-    const duration = 4200;
-    const recordMs = 1800;
+    const duration = 5200;
     const start = performance.now();
     const stream = canvas.captureStream(30);
     const mimeType = MediaRecorder.isTypeSupported("video/webm;codecs=vp9")
       ? "video/webm;codecs=vp9"
       : "video/webm";
-    const recorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 550000 });
+    const recorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 2600000 });
     const chunks = [];
 
     recorder.ondataavailable = (event) => {
@@ -166,7 +165,7 @@ const chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 
     recorder.start(200);
     requestAnimationFrame(draw);
-    await new Promise((resolve) => setTimeout(resolve, recordMs + 250));
+    await new Promise((resolve) => setTimeout(resolve, duration + 250));
     recorder.stop();
     await new Promise((resolve) => (recorder.onstop = resolve));
     const blob = new Blob(chunks, { type: mimeType });
