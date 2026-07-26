@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="李浩鸿的个人简历网站，展示教育背景、项目经历、技术能力、获奖经历和未来作品。"
+    />
+    <title>李浩鸿 | 个人简历</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark">LH</span>
+        <span>李浩鸿</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#project">项目</a>
+        <a href="#works">作品</a>
+        <a href="#awards">奖项</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <div class="grainient-bg" aria-hidden="true">
+      <canvas id="grainientCanvas"></canvas>
+    </div>
+
+    <main id="top">
+      <section class="hero section-observe" id="home">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+        >
+          <source src="assets/16445083_3840_2160_30fps.mp4?v=20260726" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-nameplate" aria-hidden="true">LIHAOHONG</div>
+        <div class="hero-inner">
+          <p class="eyebrow">AI Application & Full-Stack Development</p>
+        </div>
+      </section>
+
+      <section class="hero-dock" aria-label="快捷入口与个人亮点">
+        <div class="hero-dock-inner">
+          <a class="hero-dock-card hero-dock-action button-primary" href="assets/resume-li-haohong.pdf" download>下载简历</a>
+          <a class="hero-dock-card hero-dock-action button-ghost" href="#project">查看项目</a>
+          <div class="hero-dock-card hero-proof-card">
+            <strong>2024</strong>
+            <span>进入汕头大学计科卓越工程师班</span>
+          </div>
+          <div class="hero-dock-card hero-proof-card">
+            <strong>AI</strong>
+            <span>AI 应用开发与全栈工程方向</span>
+          </div>
+          <div class="hero-dock-card hero-proof-card">
+            <strong>5+</strong>
+            <span>奖学金与算法竞赛获奖记录</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-observe about-section" id="about">
+        <div class="profile-space">
+          <div class="profile-top">
+            <div class="profile-name">
+              <p class="eyebrow">Profile</p>
+              <h2>李浩鸿</h2>
+              <span>Li Haohong</span>
+            </div>
+            <article class="profile-copy">
+              <h3>面向工程结果的学习者</h3>
+              <p class="profile-direction">
+                关注 AI 应用开发、全栈工程与数据分析，把算法能力落到能运行、能复用、能解释的系统里。
+              </p>
+              <p>
+                我熟悉 Python，具备 C/C++ 编程能力，也在使用 React、TypeScript、FastAPI、
+                RAG、DeepSeek API 等技术栈进行全栈开发。相比只停留在 demo，我更关注任务调度、
+                数据处理、幂等写入、异常降级这类真实系统里的细节。
+              </p>
+              <p>
+                我善于使用 AI 工具辅助开发，包括 Claude Code、Codex 等；但目标不是把代码交给工具，
+                而是更快地验证思路、拆解问题并交付可维护的结果。
+              </p>
+            </article>
+          </div>
+          <div class="profile-info" aria-label="个人信息">
+            <a href="mailto:1162938454@qq.com">
+              <span>邮箱</span>
+              <strong>1162938454@qq.com</strong>
+            </a>
+            <a href="tel:19192187094">
+              <span>电话</span>
+              <strong>19192187094</strong>
+            </a>
+            <div>
+              <span>学校</span>
+              <strong>汕头大学</strong>
+            </div>
+            <div>
+              <span>专业</span>
+              <strong>计算机科学与技术</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-observe education-section" id="education">
+        <div class="section-heading">
+          <p class="eyebrow">Education</p>
+          <h2>教育背景</h2>
+        </div>
+        <article class="education-card">
+          <div>
+            <span class="timeline-date">2024.09 - 至今</span>
+            <h3>汕头大学 · 计算机科学与技术</h3>
+            <p>教育部直属卓越工程师班，全日制本科。</p>
+          </div>
+          <div class="course-cloud" aria-label="主修课程">
+            <span>大模型应用与开发</span>
+            <span>数据结构与算法</span>
+            <span>数据库原理</span>
+            <span>编译原理</span>
+            <span>操作系统</span>
+            <span>计算机组成原理</span>
+            <span>可视分析与可视化设计</span>
+            <span>面向对象程序设计</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section section-observe" id="project">
+        <div class="section-heading">
+          <p class="eyebrow">Case Study</p>
+          <h2>项目经历</h2>
+        </div>
+        <article class="case-study">
+          <div class="case-main">
+            <span class="small-label">团队协作 · 算法模块</span>
+            <h3>电商销售数据智能分析平台</h3>
+            <p>
+              参与前端 1 人、后端 1 人、算法 3 人的团队开发，负责算法 2 模块：
+              基于 RFM 模型的用户价值分层。系统由后端数据库任务表驱动算法执行，
+              算法侧轮询认领任务并回写结果，前端通过可视化图表展示分析结论。
+            </p>
+            <div class="stack-list" aria-label="项目技术栈">
+              <span>Python</span>
+              <span>pandas</span>
+              <span>numpy</span>
+              <span>PyMySQL</span>
+              <span>Flask</span>
+              <span>MySQL</span>
+              <span>RFM 模型</span>
+            </div>
+          </div>
+          <div class="case-flow" aria-label="项目流程">
+            <div>订单明细聚合</div>
+            <div>R/F/M 评分</div>
+            <div>用户价值分层</div>
+            <div>结果幂等回写</div>
+          </div>
+          <div class="case-grid">
+            <div class="feature-card">
+              <h4>RFM 用户分层引擎</h4>
+              <p>将原始 RFM 值计算、五分位评分、8 类用户映射与购买力评级拆成模块化流水线。</p>
+            </div>
+            <div class="feature-card">
+              <h4>双模式评分策略</h4>
+              <p>支持 quantile 与 fixed 两种评分方式，数据分布不足时自动降级为等距分箱。</p>
+            </div>
+            <div class="feature-card">
+              <h4>复购率与留存率</h4>
+              <p>计算当期复购率，并推算等长上期窗口对比活跃用户留存。</p>
+            </div>
+            <div class="feature-card">
+              <h4>任务调度与幂等设计</h4>
+              <p>实现 pending、running、completed、failed 状态机，多实例通过状态抢占避免重复执行。</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section section-observe" id="works">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Future Works</p>
+            <h2>未来作品</h2>
+          </div>
+          <p>
+            现在先把展位留好。以后每有一个项目，只需要替换标题、截图、技术栈和链接，
+            网站就能自然成长。
+          </p>
+        </div>
+        <div class="works-grid">
+          <article class="work-card is-ready">
+            <div class="work-visual data-visual" aria-hidden="true"></div>
+            <span class="small-label">当前案例</span>
+            <h3>电商销售数据智能分析平台</h3>
+            <p>可继续补充项目截图、GitHub 链接、部署地址与详细复盘。</p>
+            <div class="mini-tags"><span>Data</span><span>Algorithm</span><span>Backend</span></div>
+          </article>
+          <article class="work-card placeholder-card" tabindex="0">
+            <div class="work-visual empty-visual" aria-hidden="true"></div>
+            <span class="small-label">作品位 02</span>
+            <h3>AI 应用项目</h3>
+            <p>适合放 RAG、智能助手、DeepSeek API 应用或课程项目。</p>
+            <div class="mini-tags"><span>AI</span><span>RAG</span><span>API</span></div>
+          </article>
+          <article class="work-card placeholder-card" tabindex="0">
+            <div class="work-visual empty-visual alt" aria-hidden="true"></div>
+            <span class="small-label">作品位 03</span>
+            <h3>全栈产品项目</h3>
+            <p>适合放 React + TypeScript + FastAPI 的完整产品。</p>
+            <div class="mini-tags"><span>React</span><span>FastAPI</span><span>MySQL</span></div>
+          </article>
+          <article class="work-card placeholder-card" tabindex="0">
+            <div class="work-visual empty-visual warm" aria-hidden="true"></div>
+            <span class="small-label">作品位 04</span>
+            <h3>算法竞赛复盘</h3>
+            <p>适合整理比赛题解、训练记录和算法专题文章。</p>
+            <div class="mini-tags"><span>C++</span><span>Algorithm</span><span>Notes</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-observe awards-section" id="awards">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Awards & Certificates</p>
+            <h2>获奖经历</h2>
+          </div>
+          <p>
+            点击任意获奖经历可以查看对应证书信息。证书文件上传到 `assets/certificates/`
+            后，把下载链接替换为真实文件路径即可。
+          </p>
+        </div>
+        <div class="awards-board">
+          <div class="award-timeline" role="list">
+            <button
+              class="award-item is-active"
+              type="button"
+              data-certificate="lanqiao"
+              data-title="蓝桥杯软件赛 · 全国总决赛三等奖"
+              data-meta="全国总决赛 · 2026 证书"
+              data-file="assets/certificates/2026-lanqiao-national-third.jpg"
+            >
+              <span>第十七届</span>
+              <strong>蓝桥杯软件赛 · 全国总决赛三等奖</strong>
+            </button>
+            <button
+              class="award-item"
+              type="button"
+              data-certificate="baidu-2026"
+              data-title="2026 百度之星程序设计大赛 · 初赛铜奖"
+              data-meta="程序设计竞赛 · 2025 证书"
+              data-file="assets/certificates/2025-baidu-star-bronze.jpg"
+            >
+              <span>2026</span>
+              <strong>2026 百度之星程序设计大赛 · 初赛铜奖</strong>
+            </button>
+            <button
+              class="award-item"
+              type="button"
+              data-certificate="ai-2025"
+              data-title="2025 全球校园人工智能算法精英大赛 · 全国二等奖"
+              data-meta="AI 算法竞赛 · 2025 证书"
+              data-file="assets/certificates/2025-aic-national-second.pdf"
+            >
+              <span>2025</span>
+              <strong>2025 全球校园人工智能算法精英大赛 · 全国二等奖</strong>
+            </button>
+            <button
+              class="award-item"
+              type="button"
+              data-certificate="baidu-2025"
+              data-title="2025 百度之星程序设计大赛 · 初赛铜奖"
+              data-meta="程序设计竞赛 · 2025 证书待补"
+              data-file=""
+            >
+              <span>2025</span>
+              <strong>2025 百度之星程序设计大赛 · 初赛铜奖</strong>
+            </button>
+            <button
+              class="award-item"
+              type="button"
+              data-certificate="scholarship"
+              data-title="汕头大学创新人才奖学金"
+              data-meta="校级奖学金 · 证书待补"
+              data-file=""
+            >
+              <span>校级</span>
+              <strong>汕头大学创新人才奖学金</strong>
+            </button>
+          </div>
+          <aside class="award-panel" aria-live="polite">
+            <span class="small-label">证书下载</span>
+            <div class="certificate-preview" data-certificate-preview>
+              <img data-certificate-image alt="证书预览" />
+              <object data-certificate-object type="application/pdf"></object>
+              <span data-certificate-placeholder>请选择获奖经历</span>
+            </div>
+            <h3 data-certificate-title>蓝桥杯软件赛 · 全国总决赛三等奖</h3>
+            <p data-certificate-meta>全国总决赛 · 2026 证书</p>
+            <a class="button button-disabled" data-certificate-link aria-disabled="true">下载证书</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-observe skills-section" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow">Skills</p>
+          <h2>技术与优势</h2>
+        </div>
+        <div class="skills-grid">
+          <article>
+            <h3>编程与工程</h3>
+            <p>Python、C/C++、React、TypeScript、FastAPI、Flask、MySQL、PyMySQL。</p>
+          </article>
+          <article>
+            <h3>AI 与数据</h3>
+            <p>RAG、DeepSeek API、pandas、numpy、RFM 用户分层、可视分析与可视化设计。</p>
+          </article>
+          <article>
+            <h3>语言与协作</h3>
+            <p>大学英语四级；熟练掌握潮汕语，也会讲粤语；能适应较长实习或项目周期。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-observe" id="contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>期待把下一个项目做扎实</h2>
+        <p>欢迎通过邮箱或电话联系我，也可以直接下载 PDF 简历查看完整版本。</p>
+      </div>
+      <div class="footer-actions">
+        <a class="button button-primary" href="mailto:1162938454@qq.com">发送邮件</a>
+        <a class="button button-ghost" href="assets/resume-li-haohong.pdf" download>下载简历</a>
+      </div>
+      <p class="copyright">© <span id="currentYear"></span> 李浩鸿. Built as a living resume portfolio.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
