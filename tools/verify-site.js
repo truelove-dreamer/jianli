@@ -8,7 +8,12 @@ const requiredFiles = [
   "script.js",
   "assets/resume-li-haohong.pdf",
   "assets/16445083_3840_2160_30fps.mp4",
+  "assets/hero-poster.svg",
   "assets/hero-fallback.svg",
+  "assets/certificates/2026-baidu-star-silver.jpg",
+  "assets/certificates/2025-baidu-star-bronze.jpg",
+  "assets/certificates/2026-lanqiao-national-third.jpg",
+  "assets/certificates/2025-aic-national-second.pdf",
 ];
 
 const requiredSnippets = [
@@ -20,6 +25,7 @@ const requiredSnippets = [
   'id="awards"',
   'id="contact"',
   "assets/16445083_3840_2160_30fps.mp4",
+  "assets/hero-poster.svg",
   "assets/resume-li-haohong.pdf",
   "1162938454@qq.com",
   "LIHAOHONG",
@@ -32,6 +38,8 @@ const requiredSnippets = [
   "award-panel",
   "data-certificate",
   "蓝桥杯",
+  "2026 百度之星程序设计大赛 · 省赛铜奖",
+  "2025 百度之星程序设计大赛 · 初赛人才专项赛道铜奖",
 ];
 
 const failures = [];

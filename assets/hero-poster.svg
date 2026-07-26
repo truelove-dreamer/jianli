@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900">
+      <stop offset="0" stop-color="#030712" />
+      <stop offset="0.4" stop-color="#071c2d" />
+      <stop offset="0.75" stop-color="#0b1530" />
+      <stop offset="1" stop-color="#140b24" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1140 330) rotate(20) scale(520 300)">
+      <stop offset="0" stop-color="#49ffe2" stop-opacity="0.32" />
+      <stop offset="0.45" stop-color="#58a6ff" stop-opacity="0.2" />
+      <stop offset="0.82" stop-color="#b18cff" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#07101d" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <path d="M0 0H72" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+      <path d="M0 0V72" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="url(#glow)" />
+  <rect width="1600" height="900" fill="url(#grid)" opacity="0.38" />
+  <path d="M760 540C860 470 920 340 1030 290C1120 250 1240 270 1320 170" stroke="#49ffe2" stroke-opacity="0.28" stroke-width="3" stroke-linecap="round" />
+  <circle cx="1045" cy="300" r="16" fill="#49ffe2" fill-opacity="0.55" />
+  <circle cx="1300" cy="186" r="12" fill="#58a6ff" fill-opacity="0.46" />
+  <text x="110" y="170" fill="#f8fafc" fill-opacity="0.14" font-family="Inter, Arial, sans-serif" font-size="120" font-weight="900" letter-spacing="2">LIHAOHONG</text>
+  <rect x="980" y="230" width="390" height="240" rx="24" fill="#091220" fill-opacity="0.78" stroke="#d8fff7" stroke-opacity="0.16" />
+  <path d="M1010 392C1060 324 1115 392 1180 336C1222 300 1262 250 1335 232" stroke="#49ffe2" stroke-opacity="0.75" stroke-width="5" stroke-linecap="round" />
+  <circle cx="1240" cy="274" r="30" fill="#ffc857" fill-opacity="0.18" />
+  <circle cx="1202" cy="274" r="9" fill="#49ffe2" fill-opacity="0.5" />
+  <circle cx="1140" cy="348" r="8" fill="#58a6ff" fill-opacity="0.5" />
+</svg>

@@ -189,7 +189,7 @@ h4 {
   align-items: end;
   overflow: hidden;
   color: #f8fafc;
-  background: #070b14;
+  background: #070b14 url("assets/hero-poster.svg") center / cover no-repeat;
 }
 
 .hero-video,
@@ -204,7 +204,7 @@ h4 {
   height: 100%;
   object-fit: cover;
   opacity: 1;
-  filter: saturate(1.24) contrast(1.08);
+  filter: saturate(1.14) contrast(1.05);
 }
 
 .hero-overlay {
