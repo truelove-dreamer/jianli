@@ -138,18 +138,36 @@ document.addEventListener("DOMContentLoaded", () => {
     initGrainient(grainientCanvas);
   }
 
-  if (heroVideo) {
-    const revealHeroVideo = () => heroVideo.classList.add("is-ready");
-    if (heroVideo.readyState >= 2) {
-      revealHeroVideo();
-    } else {
-      heroVideo.addEventListener("loadeddata", revealHeroVideo, { once: true });
-      heroVideo.addEventListener("canplay", revealHeroVideo, { once: true });
-    }
-  }
-
-  initPortfolioMotion();
+  waitForHeroVideo(heroVideo).then(() => initPortfolioMotion());
 });
+
+function waitForHeroVideo(video) {
+  return new Promise((resolve) => {
+    if (!video) {
+      resolve();
+      return;
+    }
+
+    let settled = false;
+    const reveal = () => {
+      if (settled) return;
+      settled = true;
+      video.classList.add("is-ready");
+      resolve();
+    };
+
+    if (video.readyState >= 3) {
+      reveal();
+      return;
+    }
+
+    video.addEventListener("canplay", reveal, { once: true });
+    video.addEventListener("loadeddata", reveal, { once: true });
+    video.addEventListener("error", reveal, { once: true });
+    video.load();
+    video.play().catch(() => {});
+  });
+}
 
 function initGrainient(canvas) {
   const ctx = canvas.getContext("2d", { alpha: true });
@@ -295,6 +313,7 @@ function initPortfolioMotion() {
 
   document.documentElement.classList.add("js-anim-ready");
   gsap.registerPlugin(ScrollTrigger);
+  gsap.set(".hero-nameplate, .hero .eyebrow, .hero-dock-card", { clearProps: "opacity" });
 
   const slowEase = "power4.out";
   gsap.set(".site-header", { y: -34, opacity: 0, filter: "blur(10px)" });
