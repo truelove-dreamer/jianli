@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  if (!window.location.hash) {
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  }
+
   const header = document.querySelector("[data-header]");
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
@@ -139,6 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   waitForHeroVideo(heroVideo).then(() => initPortfolioMotion());
+});
+
+window.addEventListener("pageshow", () => {
+  if (!window.location.hash) {
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  }
 });
 
 function waitForHeroVideo(video) {
