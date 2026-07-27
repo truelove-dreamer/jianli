@@ -42,9 +42,12 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 64px 64px,
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 64px 64px;
-  mask-image: linear-gradient(to bottom, transparent, black 16%, black 82%, transparent);
+    radial-gradient(circle at 78% 16%, rgba(67, 244, 221, 0.14), transparent 26rem),
+    radial-gradient(circle at 12% 46%, rgba(121, 168, 255, 0.1), transparent 30rem),
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px) 0 0 / 64px 64px,
+    #030712;
+  mask-image: linear-gradient(to bottom, transparent, black 8%, black 100%);
 }
 
 .grainient-bg {
@@ -54,7 +57,7 @@ body::before {
   overflow: hidden;
   pointer-events: none;
   background:
-    linear-gradient(180deg, #030712 0%, rgba(3, 7, 18, 0.2) 34%, rgba(3, 7, 18, 0.68) 100%),
+    linear-gradient(180deg, #000 0%, rgba(3, 7, 18, 0.3) 28%, rgba(3, 7, 18, 0.74) 100%),
     #030712;
 }
 
@@ -65,9 +68,10 @@ body::before {
   pointer-events: none;
   background:
     radial-gradient(circle at 16% 18%, rgba(67, 244, 221, 0.12), transparent 22rem),
+    radial-gradient(circle at 80% 80%, rgba(67, 244, 221, 0.08), transparent 26rem),
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 / 58px 58px,
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 / 58px 58px,
-    linear-gradient(180deg, rgba(3, 7, 18, 0.98) 0%, transparent 34%, rgba(3, 7, 18, 0.5) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(3, 7, 18, 0.24) 34%, rgba(3, 7, 18, 0.62) 100%);
 }
 
 #grainientCanvas {
@@ -869,6 +873,7 @@ h1 {
   padding: 82px max(20px, calc((100vw - var(--max)) / 2));
   background:
     radial-gradient(circle at 78% 16%, rgba(67, 244, 221, 0.14), transparent 26rem),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.28) 0%, rgba(3, 7, 18, 0.96) 32%),
     #030712;
   color: #f8fafc;
 }
