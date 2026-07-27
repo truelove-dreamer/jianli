@@ -156,9 +156,9 @@ function initGrainient(canvas) {
   if (!ctx) return;
 
   const palette = [
-    [100, 166, 12],
-    [0, 0, 0],
-    [134, 214, 190],
+    [3, 7, 18],
+    [7, 22, 38],
+    [67, 244, 221],
   ];
   let width = 0;
   let height = 0;
@@ -237,16 +237,16 @@ function initGrainient(canvas) {
     ctx.fillRect(0, 0, width, height);
 
     const base = ctx.createLinearGradient(0, height * 0.08, width, height);
-    base.addColorStop(0, colorAt(palette[2], palette[0], palette[1], 0.1 + Math.sin(t) * 0.06, 0.52));
-    base.addColorStop(0.44, "rgba(0, 0, 0, 0.76)");
-    base.addColorStop(1, colorAt(palette[1], palette[2], palette[0], 0.72 + Math.cos(t) * 0.08, 0.6));
+    base.addColorStop(0, "rgba(0, 0, 0, 0.94)");
+    base.addColorStop(0.44, colorAt(palette[0], palette[1], palette[2], 0.18 + Math.sin(t) * 0.04, 0.7));
+    base.addColorStop(1, colorAt(palette[1], palette[0], palette[2], 0.42 + Math.cos(t) * 0.05, 0.74));
     ctx.fillStyle = base;
     ctx.fillRect(0, 0, width, height);
 
     const blobs = [
-      [0.2 + Math.sin(t * 1.7) * 0.06, 0.36 + Math.cos(t * 1.2) * 0.1, 0.5, 0.5],
-      [0.72 + Math.cos(t * 1.1) * 0.08, 0.2 + Math.sin(t * 1.4) * 0.06, 0.56, 0.4],
-      [0.58 + Math.sin(t * 1.25) * 0.08, 0.74 + Math.cos(t * 1.8) * 0.08, 0.68, 0.32],
+      [0.2 + Math.sin(t * 1.7) * 0.05, 0.36 + Math.cos(t * 1.2) * 0.08, 0.5, 0.22],
+      [0.72 + Math.cos(t * 1.1) * 0.06, 0.2 + Math.sin(t * 1.4) * 0.05, 0.56, 0.18],
+      [0.58 + Math.sin(t * 1.25) * 0.06, 0.74 + Math.cos(t * 1.8) * 0.06, 0.68, 0.16],
     ];
 
     blobs.forEach(([cx, cy, radius, alpha], index) => {
@@ -264,9 +264,9 @@ function initGrainient(canvas) {
 
     ctx.globalCompositeOperation = "multiply";
     const shade = ctx.createLinearGradient(0, 0, 0, height);
-    shade.addColorStop(0, "rgba(3, 7, 18, 0.94)");
-    shade.addColorStop(0.18, "rgba(3, 7, 18, 0.4)");
-    shade.addColorStop(1, "rgba(3, 7, 18, 0.32)");
+    shade.addColorStop(0, "rgba(0, 0, 0, 0.96)");
+    shade.addColorStop(0.18, "rgba(3, 7, 18, 0.54)");
+    shade.addColorStop(1, "rgba(3, 7, 18, 0.52)");
     ctx.fillStyle = shade;
     ctx.fillRect(0, 0, width, height);
     ctx.globalCompositeOperation = "source-over";
