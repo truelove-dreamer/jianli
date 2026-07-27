@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const certificateObject = document.querySelector("[data-certificate-object]");
   const certificatePlaceholder = document.querySelector("[data-certificate-placeholder]");
   const grainientCanvas = document.querySelector("#grainientCanvas");
+  const heroVideo = document.querySelector(".hero-video");
 
   if (currentYear) {
     currentYear.textContent = String(new Date().getFullYear());
@@ -135,6 +136,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (grainientCanvas) {
     initGrainient(grainientCanvas);
+  }
+
+  if (heroVideo) {
+    const revealHeroVideo = () => heroVideo.classList.add("is-ready");
+    if (heroVideo.readyState >= 2) {
+      revealHeroVideo();
+    } else {
+      heroVideo.addEventListener("loadeddata", revealHeroVideo, { once: true });
+      heroVideo.addEventListener("canplay", revealHeroVideo, { once: true });
+    }
   }
 
   initPortfolioMotion();
@@ -286,31 +297,31 @@ function initPortfolioMotion() {
   gsap.registerPlugin(ScrollTrigger);
 
   const slowEase = "power4.out";
-  gsap.set(".site-header", { y: -28, opacity: 0 });
+  gsap.set(".site-header", { y: -34, opacity: 0, filter: "blur(10px)" });
   gsap.set(".hero-nameplate", {
-    y: 52,
-    scaleX: 0.72,
+    y: 76,
+    scaleX: 0.8,
     opacity: 0,
     clipPath: "inset(0 100% 0 0)",
-    filter: "blur(10px)",
+    filter: "blur(18px)",
     transformOrigin: "left center",
   });
   gsap.set(".hero .eyebrow", {
-    y: 34,
+    y: 52,
     opacity: 0,
     clipPath: "inset(0 100% 0 0)",
-    filter: "blur(8px)",
+    filter: "blur(14px)",
   });
   gsap.set(".hero-dock-card", {
-    y: 46,
+    y: 72,
     opacity: 0,
-    clipPath: "inset(24% 0 0 0)",
-    filter: "blur(8px)",
+    clipPath: "inset(38% 0 0 0)",
+    filter: "blur(16px)",
   });
 
   const intro = gsap.timeline({ defaults: { ease: slowEase } });
   intro
-    .to(".site-header", { y: 0, opacity: 1, duration: 1.1 }, 0.15)
+    .to(".site-header", { y: 0, opacity: 1, filter: "blur(0px)", duration: 1.45 }, 0.6)
     .to(
       ".hero-nameplate",
       {
@@ -319,9 +330,9 @@ function initPortfolioMotion() {
         opacity: 1,
         clipPath: "inset(0 0% 0 0)",
         filter: "blur(0px)",
-        duration: 1.9,
+        duration: 2.35,
       },
-      0.28
+      0.72
     )
     .to(
       ".hero .eyebrow",
@@ -330,9 +341,9 @@ function initPortfolioMotion() {
         opacity: 1,
         clipPath: "inset(0 0% 0 0)",
         filter: "blur(0px)",
-        duration: 1.3,
+        duration: 1.75,
       },
-      1.05
+      1.65
     )
     .to(
       ".hero-dock-card",
@@ -341,10 +352,10 @@ function initPortfolioMotion() {
         opacity: 1,
         clipPath: "inset(0% 0 0 0)",
         filter: "blur(0px)",
-        duration: 1.25,
-        stagger: 0.12,
+        duration: 1.8,
+        stagger: 0.16,
       },
-      1.28
+      2.05
     );
 
   gsap.utils.toArray(".section-observe").forEach((section) => {
