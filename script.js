@@ -164,17 +164,18 @@ function waitForHeroVideo(video) {
     const reveal = () => {
       if (settled) return;
       settled = true;
+      document.body.classList.add("is-hero-priority");
       video.classList.add("is-ready");
       resolve();
     };
 
-    if (video.readyState >= 3) {
+    if (video.readyState >= 2) {
       reveal();
       return;
     }
 
-    video.addEventListener("canplay", reveal, { once: true });
     video.addEventListener("loadeddata", reveal, { once: true });
+    video.addEventListener("canplay", reveal, { once: true });
     video.addEventListener("error", reveal, { once: true });
     video.load();
     video.play().catch(() => {});
@@ -195,6 +196,7 @@ function initGrainient(canvas) {
   let pixelRatio = 1;
   let rafId = 0;
   let grainSeed = 0;
+  let isAnimating = false;
   const grainCanvas = document.createElement("canvas");
   const grainCtx = grainCanvas.getContext("2d");
   const grainSize = 180;
@@ -302,18 +304,37 @@ function initGrainient(canvas) {
     ctx.globalCompositeOperation = "source-over";
 
     drawGrain();
-    rafId = window.requestAnimationFrame(render);
+    if (isAnimating) {
+      rafId = window.requestAnimationFrame(render);
+    }
   };
 
   resize();
   window.addEventListener("resize", resize, { passive: true });
-  rafId = window.requestAnimationFrame(render);
+  render(0);
+
+  const setAnimationState = () => {
+    const shouldAnimate = window.scrollY > window.innerHeight * 0.75 && !document.hidden;
+    document.body.classList.toggle("is-hero-priority", !shouldAnimate);
+    if (shouldAnimate === isAnimating) return;
+    isAnimating = shouldAnimate;
+    window.cancelAnimationFrame(rafId);
+    if (isAnimating) {
+      rafId = window.requestAnimationFrame(render);
+    } else {
+      render(performance.now());
+    }
+  };
+
+  window.addEventListener("scroll", setAnimationState, { passive: true });
+  setAnimationState();
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
+      isAnimating = false;
       window.cancelAnimationFrame(rafId);
     } else {
-      rafId = window.requestAnimationFrame(render);
+      setAnimationState();
     }
   });
 }
@@ -467,13 +488,13 @@ function initPortfolioMotion() {
 
   gsap.utils.toArray(".work-visual, .certificate-preview").forEach((visual) => {
     gsap.to(visual, {
-      yPercent: -8,
+      yPercent: -4,
       ease: "none",
       scrollTrigger: {
         trigger: visual,
         start: "top bottom",
         end: "bottom top",
-        scrub: 1.1,
+        scrub: 1.6,
       },
     });
   });
