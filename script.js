@@ -1,6 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
-  if (!window.location.hash) {
+const shouldStartAtTop = !window.location.hash;
+
+function keepInitialScrollAtTop(duration = 2200) {
+  if (!shouldStartAtTop) return;
+  if ("scrollRestoration" in window.history) {
     window.history.scrollRestoration = "manual";
+  }
+
+  const startedAt = performance.now();
+  const pinTop = () => {
+    window.scrollTo(0, 0);
+    if (performance.now() - startedAt < duration) {
+      window.requestAnimationFrame(pinTop);
+    }
+  };
+
+  pinTop();
+  window.addEventListener("load", () => window.scrollTo(0, 0), { once: true });
+}
+
+keepInitialScrollAtTop();
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (shouldStartAtTop) {
     window.scrollTo(0, 0);
   }
 
@@ -147,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("pageshow", () => {
-  if (!window.location.hash) {
+  if (shouldStartAtTop) {
     window.history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
   }
@@ -346,6 +367,7 @@ function initPortfolioMotion() {
 
   document.documentElement.classList.add("js-anim-ready");
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.clearScrollMemory?.("manual");
   gsap.set(".hero-nameplate, .hero .eyebrow, .hero-dock-card", { clearProps: "opacity" });
 
   const slowEase = "power4.out";
